@@ -3,48 +3,89 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import { ArrowRight, MessageCircle, Sparkles, Target, Zap } from "lucide-react"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 export function HeroSection() {
   const [showDialog, setShowDialog] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
+
+  // Memoize animation variants to prevent recreation
+  const animationVariants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0 },
+    }),
+    [],
+  )
+
+  // Disable animations if user prefers reduced motion
+  const getAnimationProps = (delay = 0) => {
+    if (shouldReduceMotion) {
+      return {}
+    }
+    return {
+      initial: "hidden",
+      animate: "visible",
+      variants: animationVariants,
+      transition: { duration: 0.6, delay },
+    }
+  }
 
   const handleStartProject = () => {
     setShowDialog(true)
   }
 
+  const statsData = useMemo(
+    () => [
+      {
+        icon: Target,
+        number: "২০+",
+        text: "প্রজেক্ট সম্পন্ন",
+        gradient: "from-emerald-500 to-teal-500",
+        bgGradient: "from-emerald-500/10 to-teal-500/10",
+        hoverBorder: "hover:border-emerald-200 dark:hover:border-emerald-700",
+      },
+      {
+        icon: Sparkles,
+        number: "৯৮%",
+        text: "ক্লায়েন্ট সন্তুষ্টি",
+        gradient: "from-teal-500 to-cyan-500",
+        bgGradient: "from-teal-500/10 to-cyan-500/10",
+        hoverBorder: "hover:border-teal-200 dark:hover:border-teal-700",
+      },
+      {
+        icon: Zap,
+        number: "৪৮ ঘন্টা",
+        text: "গড় ডেলিভারি",
+        gradient: "from-cyan-500 to-blue-500",
+        bgGradient: "from-cyan-500/10 to-blue-500/10",
+        hoverBorder: "hover:border-cyan-200 dark:hover:border-cyan-700",
+      },
+    ],
+    [],
+  )
+
   return (
     <>
       <section className="relative py-16 sm:py-20 lg:py-28 xl:py-36 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-30">
+        {/* Optimized Background Pattern */}
+        <div className="absolute inset-0 opacity-30 will-change-transform">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.1),transparent_50%)]"></div>
           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(6,182,212,0.1),transparent_50%)]"></div>
         </div>
 
-        {/* Floating Geometric Shapes */}
+        {/* Reduced floating shapes for better performance */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-emerald-400/20 to-teal-500/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-lg animate-pulse delay-1000"></div>
           <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-teal-400/15 to-emerald-500/15 rounded-full blur-2xl animate-pulse delay-2000"></div>
-          <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-emerald-500/25 to-cyan-500/25 rotate-45 blur-sm animate-pulse delay-500"></div>
-        </div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.5)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center mb-6 sm:mb-8"
-            >
+            <motion.div {...getAnimationProps(0)} className="inline-flex items-center mb-6 sm:mb-8">
               <Badge className="inline-flex items-center bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-700 px-4 py-2 text-sm font-medium rounded-full">
                 <Sparkles className="w-4 h-4 mr-2" />🚀 প্রফেশনাল ল্যান্ডিং পেজ
               </Badge>
@@ -52,9 +93,7 @@ export function HeroSection() {
 
             {/* Main Heading */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              {...getAnimationProps(0.2)}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 dark:text-white mb-6 sm:mb-8 leading-tight"
             >
               আরও বেশি ভিজিটরকে{" "}
@@ -68,9 +107,7 @@ export function HeroSection() {
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              {...getAnimationProps(0.4)}
               className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto"
             >
               আপনার ছোট ব্যবসার জন্য একটি হাই-কনভার্টিং ল্যান্ডিং পেজ তৈরি করুন। প্রফেশনাল ডিজাইন, দ্রুত লোডিং, এবং মোবাইল অপটিমাইজড।
@@ -78,9 +115,7 @@ export function HeroSection() {
 
             {/* Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              {...getAnimationProps(0.6)}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-16 justify-center items-center"
             >
               <Button
@@ -94,45 +129,9 @@ export function HeroSection() {
             </motion.div>
 
             {/* Enhanced Stats Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid sm:grid-cols-3 gap-2 max-w-4xl mx-auto"
-            >
-              {[
-                {
-                  icon: Target,
-                  number: "২০+",
-                  text: "প্রজেক্ট সম্পন্ন",
-                  gradient: "from-emerald-500 to-teal-500",
-                  bgGradient: "from-emerald-500/10 to-teal-500/10",
-                  hoverBorder: "hover:border-emerald-200 dark:hover:border-emerald-700",
-                },
-                {
-                  icon: Sparkles,
-                  number: "৯৮%",
-                  text: "ক্লায়েন্ট সন্তুষ্টি",
-                  gradient: "from-teal-500 to-cyan-500",
-                  bgGradient: "from-teal-500/10 to-cyan-500/10",
-                  hoverBorder: "hover:border-teal-200 dark:hover:border-teal-700",
-                },
-                {
-                  icon: Zap,
-                  number: "৪৮ ঘন্টা",
-                  text: "গড় ডেলিভারি",
-                  gradient: "from-cyan-500 to-blue-500",
-                  bgGradient: "from-cyan-500/10 to-blue-500/10",
-                  hoverBorder: "hover:border-cyan-200 dark:hover:border-cyan-700",
-                },
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-                  className="relative group"
-                >
+            <motion.div {...getAnimationProps(0.8)} className="grid sm:grid-cols-3 gap-2 max-w-4xl mx-auto">
+              {statsData.map((stat, index) => (
+                <div key={index} className="relative group">
                   <div
                     className={`absolute inset-0 bg-gradient-to-r ${stat.bgGradient} rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300`}
                   ></div>
@@ -149,7 +148,7 @@ export function HeroSection() {
                     </div>
                     <div className="text-sm sm:text-base text-slate-600 dark:text-slate-400">{stat.text}</div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </motion.div>
           </div>
@@ -158,24 +157,6 @@ export function HeroSection() {
 
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
         <DialogContent className="sm:max-w-[400px] bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-emerald-200/50 dark:border-emerald-800/50 overflow-hidden">
-          {/* Enhanced Background Patterns for Dialog */}
-          <div className="absolute inset-0 z-0">
-            {/* Radial Gradients */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(16,185,129,0.15),transparent_60%)]"></div>
-            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_70%,rgba(6,182,212,0.15),transparent_60%)]"></div>
-
-            {/* Floating Shapes */}
-            <div className="absolute top-4 left-4 w-16 h-16 bg-gradient-to-br from-emerald-400/30 to-teal-500/30 rounded-full blur-lg animate-pulse"></div>
-            <div className="absolute bottom-4 right-4 w-12 h-12 bg-gradient-to-br from-cyan-400/30 to-blue-500/30 rounded-full blur-md animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-teal-400/20 to-emerald-500/20 rotate-45 blur-xl animate-pulse delay-500"></div>
-
-            {/* Grid Pattern */}
-            <div className="absolute inset-0 opacity-10 dark:opacity-20">
-              <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.8)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
-            </div>
-          </div>
-
-          {/* Content with higher z-index */}
           <div className="relative z-10">
             <DialogHeader className="space-y-2">
               <div className="mx-auto bg-gradient-to-r from-emerald-500 to-teal-500 w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
@@ -188,22 +169,6 @@ export function HeroSection() {
                 আপনার প্রজেক্ট সম্পর্কে আলোচনা করতে নিচের কন্টাক্ট বার ব্যবহার করুন
               </DialogDescription>
             </DialogHeader>
-
-            <div className="flex justify-center pt-2 pb-4">
-              <div className="animate-bounce bg-emerald-100 dark:bg-emerald-900/50 p-1 rounded-full shadow-md">
-                <svg
-                  className="h-5 w-5 text-emerald-500"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-              </div>
-            </div>
           </div>
         </DialogContent>
       </Dialog>
