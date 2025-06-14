@@ -68,6 +68,8 @@ export function ServicesSection() {
         </div>
       </div>
 
+      
+
       {/* Floating Orbs */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-emerald-300/10 to-teal-300/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-64 h-64 bg-gradient-to-r from-cyan-300/10 to-blue-300/10 rounded-full blur-3xl"></div>

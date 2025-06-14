@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { motion } from "framer-motion"
 import { ArrowRight, MessageCircle, Sparkles, Target, Zap } from "lucide-react"
 import { useState } from "react"
 
@@ -38,14 +39,24 @@ export function HeroSection() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex items-center mb-6 sm:mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center mb-6 sm:mb-8"
+            >
               <Badge className="inline-flex items-center bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-700 px-4 py-2 text-sm font-medium rounded-full">
                 <Sparkles className="w-4 h-4 mr-2" />🚀 প্রফেশনাল ল্যান্ডিং পেজ
               </Badge>
-            </div>
+            </motion.div>
 
             {/* Main Heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 dark:text-white mb-6 sm:mb-8 leading-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 dark:text-white mb-6 sm:mb-8 leading-tight"
+            >
               আরও বেশি ভিজিটরকে{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
@@ -53,15 +64,25 @@ export function HeroSection() {
                 </span>
               </span>{" "}
               করুন
-            </h1>
+            </motion.h1>
 
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto"
+            >
               আপনার ছোট ব্যবসার জন্য একটি হাই-কনভার্টিং ল্যান্ডিং পেজ তৈরি করুন। প্রফেশনাল ডিজাইন, দ্রুত লোডিং, এবং মোবাইল অপটিমাইজড।
-            </p>
+            </motion.p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-16 justify-center items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-16 justify-center items-center"
+            >
               <Button
                 size="lg"
                 className="w-full sm:w-auto text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
@@ -70,49 +91,67 @@ export function HeroSection() {
                 আপনার প্রজেক্ট শুরু করুন
                 <ArrowRight className="ml-3 h-5 w-5 sm:h-6 sm:w-6" />
               </Button>
-            </div>
+            </motion.div>
 
             {/* Enhanced Stats Section */}
-            <div className="grid sm:grid-cols-3 gap-2 max-w-4xl mx-auto">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                <div className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 dark:border-slate-700/50 hover:border-emerald-200 dark:hover:border-emerald-700 transition-all duration-300">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="p-3 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full">
-                      <Target className="w-6 h-6 text-white" />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="grid sm:grid-cols-3 gap-2 max-w-4xl mx-auto"
+            >
+              {[
+                {
+                  icon: Target,
+                  number: "২০+",
+                  text: "প্রজেক্ট সম্পন্ন",
+                  gradient: "from-emerald-500 to-teal-500",
+                  bgGradient: "from-emerald-500/10 to-teal-500/10",
+                  hoverBorder: "hover:border-emerald-200 dark:hover:border-emerald-700",
+                },
+                {
+                  icon: Sparkles,
+                  number: "৯৮%",
+                  text: "ক্লায়েন্ট সন্তুষ্টি",
+                  gradient: "from-teal-500 to-cyan-500",
+                  bgGradient: "from-teal-500/10 to-cyan-500/10",
+                  hoverBorder: "hover:border-teal-200 dark:hover:border-teal-700",
+                },
+                {
+                  icon: Zap,
+                  number: "৪৮ ঘন্টা",
+                  text: "গড় ডেলিভারি",
+                  gradient: "from-cyan-500 to-blue-500",
+                  bgGradient: "from-cyan-500/10 to-blue-500/10",
+                  hoverBorder: "hover:border-cyan-200 dark:hover:border-cyan-700",
+                },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
+                  className="relative group"
+                >
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r ${stat.bgGradient} rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300`}
+                  ></div>
+                  <div
+                    className={`relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 dark:border-slate-700/50 ${stat.hoverBorder} transition-all duration-300`}
+                  >
+                    <div className="flex items-center justify-center mb-4">
+                      <div className={`p-3 bg-gradient-to-r ${stat.gradient} rounded-full`}>
+                        <stat.icon className="w-6 h-6 text-white" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2">২০+</div>
-                  <div className="text-sm sm:text-base text-slate-600 dark:text-slate-400">প্রজেক্ট সম্পন্ন</div>
-                </div>
-              </div>
-
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-cyan-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                <div className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 dark:border-slate-700/50 hover:border-teal-200 dark:hover:border-teal-700 transition-all duration-300">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="p-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full">
-                      <Sparkles className="w-6 h-6 text-white" />
+                    <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2">
+                      {stat.number}
                     </div>
+                    <div className="text-sm sm:text-base text-slate-600 dark:text-slate-400">{stat.text}</div>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2">৯৮%</div>
-                  <div className="text-sm sm:text-base text-slate-600 dark:text-slate-400">ক্লায়েন্ট সন্তুষ্টি</div>
-                </div>
-              </div>
-
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                <div className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 dark:border-slate-700/50 hover:border-cyan-200 dark:hover:border-cyan-700 transition-all duration-300">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="p-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2">৪৮ ঘন্টা</div>
-                  <div className="text-sm sm:text-base text-slate-600 dark:text-slate-400">গড় ডেলিভারি</div>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
@@ -121,9 +160,18 @@ export function HeroSection() {
         <DialogContent className="sm:max-w-[400px] bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-emerald-200/50 dark:border-emerald-800/50 overflow-hidden">
           {/* Enhanced Background Patterns for Dialog */}
           <div className="absolute inset-0 z-0">
+            {/* Radial Gradients */}
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(16,185,129,0.15),transparent_60%)]"></div>
+            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_70%,rgba(6,182,212,0.15),transparent_60%)]"></div>
+
+            {/* Floating Shapes */}
+            <div className="absolute top-4 left-4 w-16 h-16 bg-gradient-to-br from-emerald-400/30 to-teal-500/30 rounded-full blur-lg animate-pulse"></div>
+            <div className="absolute bottom-4 right-4 w-12 h-12 bg-gradient-to-br from-cyan-400/30 to-blue-500/30 rounded-full blur-md animate-pulse delay-1000"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-teal-400/20 to-emerald-500/20 rotate-45 blur-xl animate-pulse delay-500"></div>
+
             {/* Grid Pattern */}
-            <div className="absolute inset-0 opacity-10 dark:opacity-10">
-              <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.8)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+            <div className="absolute inset-0 opacity-10 dark:opacity-20">
+              <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.8)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
             </div>
           </div>
 

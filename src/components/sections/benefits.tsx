@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { motion } from "framer-motion"
 import { Calendar, Clock, DollarSign, TrendingUp, Zap } from "lucide-react"
 import { useState } from "react"
 
@@ -41,26 +42,46 @@ export function BenefitsSection() {
 
   return (
     <>
-      <section className="py-16 sm:py-24 bg-white dark:bg-slate-900">
+      <section className="py-16 sm:py-24 bg-white dark:bg-slate-900 relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.5)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4"
+            >
               কেন ছোট ব্যবসাগুলো{" "}
               <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 আমাদের বেছে নেয়
               </span>
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
+            >
               আমাদের অভিজ্ঞ টিম আপনার ব্যবসাকে অনলাইনে সফল হতে সাহায্য করার জন্য প্রস্তুত
-            </p>
+            </motion.p>
           </div>
 
           {/* Benefits Cards - Redesigned */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
             {benefits.map((benefit, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-800 overflow-hidden"
               >
                 {/* Background Gradient */}
@@ -91,12 +112,18 @@ export function BenefitsSection() {
                   {/* Description */}
                   <p className="text-slate-600 dark:text-slate-300">{benefit.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Bottom CTA Section - Enhanced */}
-          <div className="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl overflow-hidden shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl overflow-hidden shadow-xl"
+          >
             <div className="relative px-6 py-12 sm:px-12 sm:py-16 text-center">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
@@ -121,30 +148,48 @@ export function BenefitsSection() {
               </div>
 
               <div className="relative z-10">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6"
+                >
                   আপনার ব্যবসার সাফল্যের জন্য প্রস্তুত?
-                </h3>
-                <p className="text-white/90 text-lg mb-8 sm:mb-10 max-w-2xl mx-auto">
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="text-white/90 text-lg mb-8 sm:mb-10 max-w-2xl mx-auto"
+                >
                   আজই আমাদের সাথে যোগাযোগ করুন এবং আপনার ব্যবসার জন্য একটি কার্যকর ল্যান্ডিং পেজ তৈরি করুন।
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                  className="flex flex-col sm:flex-row gap-4 justify-center"
+                >
                   <Button
                     className="px-8 py-6 bg-white text-emerald-600 font-semibold rounded-md shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-slate-50 cursor-pointer"
                     onClick={() => setShowConsultationDialog(true)}
                   >
                     ফ্রি কনসালটেশন বুক করুন
                   </Button>
-                </div>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <Dialog open={showConsultationDialog} onOpenChange={setShowConsultationDialog}>
         <DialogContent className="sm:max-w-[400px] border border-emerald-100/50 dark:border-emerald-900/20 shadow-lg overflow-hidden">
-                  {/* Enhanced Background Patterns for Dialog */}
-                  <div className="absolute inset-0 z-0">
+          {/* Enhanced Background Patterns for Dialog */}
+          <div className="absolute inset-0 z-0">
             {/* Grid Pattern */}
             <div className="absolute inset-0 opacity-10 dark:opacity-10">
               <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.8)_1px,transparent_1px)] bg-[size:50px_50px]"></div>

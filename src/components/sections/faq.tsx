@@ -36,7 +36,11 @@ export function FAQSection() {
   }
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-white dark:bg-slate-900">
+    <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-white dark:bg-slate-900 relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.5)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">

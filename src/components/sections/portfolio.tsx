@@ -1,5 +1,8 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
-import { Shield, ShoppingBag, TrendingUp } from "lucide-react"
+import { motion } from "framer-motion"
+import { ArrowUpRight, Shield, ShoppingBag, TrendingUp } from "lucide-react"
 
 const portfolioItems = [
   {
@@ -26,29 +29,55 @@ const portfolioItems = [
 
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-16 sm:py-24 bg-white dark:bg-slate-900">
+    <section id="portfolio" className="py-16 sm:py-24 bg-white dark:bg-slate-900 relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.5)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 text-emerald-800 dark:text-emerald-300 text-sm font-medium mb-4">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 text-emerald-800 dark:text-emerald-300 text-sm font-medium mb-4"
+          >
             আমাদের সাফল্যের গল্প
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4"
+          >
             সাম্প্রতিক{" "}
             <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
               সফলতার গল্প
             </span>
-          </h2>
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-          কীভাবে আমাদের ডিজাইন করা ল্যান্ডিং পেজগুলো ছোট ব্যবসার রূপান্তর ও বিক্রি বাড়াতে সহায়তা করেছে — দেখে নিন।
-          </p>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
+          >
+            কীভাবে আমাদের ডিজাইন করা ল্যান্ডিং পেজগুলো ছোট ব্যবসার রূপান্তর ও বিক্রি বাড়াতে সহায়তা করেছে — দেখে নিন।
+          </motion.p>
         </div>
 
         {/* Portfolio Grid */}
         <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto mb-16">
           {portfolioItems.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-800 overflow-hidden"
             >
               {/* Content */}
@@ -85,24 +114,16 @@ export function PortfolioSection() {
                   </Badge>
 
                   {/* View Details Arrow */}
-                  <div className="flex items-center text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center px-4 py-2 text-gradient-to-r ${item.gradient} transition-all duration-300 text-sm font-medium`}
-                  >
-                    <span>বিস্তারিত</span>
-                    <svg
-                      className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                  <div className="flex items-center text-emerald-600 dark:text-emerald-400">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center px-4 py-2 text-gradient-to-r ${item.gradient} transition-all duration-300 text-sm font-medium`}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
+                      <span>বিস্তারিত</span>
+                      <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </a>
                   </div>
                 </div>
 
@@ -111,12 +132,18 @@ export function PortfolioSection() {
                   className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${item.gradient} w-0 group-hover:w-full transition-all duration-500 -mb-8`}
                 ></div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Security Notice */}
-        <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 dark:border-slate-700 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 dark:border-slate-700 mb-16"
+        >
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-slate-500 to-slate-600 flex items-center justify-center">
@@ -134,7 +161,7 @@ export function PortfolioSection() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

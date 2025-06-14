@@ -1,8 +1,9 @@
 "use client"
 
-import { Mail, MessageCircle, Phone, Send } from "lucide-react"
-import { useEffect, useState } from "react"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip"
+import { Mail, MessageCircle, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
+import { BsMessenger } from "react-icons/bs";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
 const contactMethods = [
   {
@@ -23,7 +24,7 @@ const contactMethods = [
   },
   {
     name: "Messenger",
-    icon: Send,
+    icon: BsMessenger,
     href: "https://m.me/yourpage",
     color: "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700",
     label: "Messenger এ যোগাযোগ করুন",
@@ -107,7 +108,7 @@ export const FloatingContactBar = () => {
                         />
                       </a>
                     </TooltipTrigger>
-                    <TooltipContent side="top" className="bg-slate-900 text-white border-slate-700">
+                    <TooltipContent side="top">
                       <p className="text-sm">{method.label}</p>
                     </TooltipContent>
                   </Tooltip>
