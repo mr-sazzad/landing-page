@@ -14,14 +14,14 @@ const footerSections = [
 
 const contactInfo = [
   {
-    text: "hello@landingcraft.com",
+    text: "ekpata@gmail.com",
     icon: Mail,
-    href: "mailto:hello@landingcraft.com",
+    href: "mailto:ekpata@gmail.com",
   },
   {
-    text: "(555) 123-4567",
+    text: "(+880) 1613-980323",
     icon: Phone,
-    href: "tel:+15551234567",
+    href: "tel:+8801613980323",
   },
   {
     text: "সোম-শুক্র সকাল ৯টা-সন্ধ্যা ৬টা ইএসটি",
@@ -151,7 +151,7 @@ export function Footer() {
         {/* Copyright and Bottom Links */}
         <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-500 dark:text-slate-400 text-center md:text-left mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} LandingCraft Pro Solutions। সর্বস্বত্ব সংরক্ষিত।
+            &copy; {new Date().getFullYear()} Ekpata Solutions। সর্বস্বত্ব সংরক্ষিত।
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             {["প্রাইভেসি পলিসি", "টার্মস অফ সার্ভিস", "কুকি পলিসি"].map((link, index) => (

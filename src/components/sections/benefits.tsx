@@ -143,9 +143,13 @@ export function BenefitsSection() {
 
       <Dialog open={showConsultationDialog} onOpenChange={setShowConsultationDialog}>
         <DialogContent className="sm:max-w-[400px] border border-emerald-100/50 dark:border-emerald-900/20 shadow-lg overflow-hidden">
-          {/* Subtle decorative elements */}
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full blur-xl"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-teal-500/10 to-cyan-500/10 rounded-full blur-xl"></div>
+                  {/* Enhanced Background Patterns for Dialog */}
+                  <div className="absolute inset-0 z-0">
+            {/* Grid Pattern */}
+            <div className="absolute inset-0 opacity-10 dark:opacity-10">
+              <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.8)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+            </div>
+          </div>
 
           <DialogHeader className="space-y-3 relative z-10">
             <div className="mx-auto bg-gradient-to-r from-emerald-500 to-teal-500 w-12 h-12 rounded-full flex items-center justify-center shadow-md shadow-emerald-500/20 dark:shadow-emerald-500/10 ring-4 ring-white/80 dark:ring-slate-800/80">

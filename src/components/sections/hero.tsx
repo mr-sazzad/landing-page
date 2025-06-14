@@ -118,32 +118,43 @@ export function HeroSection() {
       </section>
 
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
-        <DialogContent className="sm:max-w-[400px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border border-emerald-100 dark:border-emerald-900/30">
-          <DialogHeader className="space-y-2">
-            <div className="mx-auto bg-gradient-to-r from-emerald-500 to-teal-500 w-10 h-10 rounded-full flex items-center justify-center">
-              <MessageCircle className="h-5 w-5 text-white" />
+        <DialogContent className="sm:max-w-[400px] bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-emerald-200/50 dark:border-emerald-800/50 overflow-hidden">
+          {/* Enhanced Background Patterns for Dialog */}
+          <div className="absolute inset-0 z-0">
+            {/* Grid Pattern */}
+            <div className="absolute inset-0 opacity-10 dark:opacity-10">
+              <div className="w-full h-full bg-[linear-gradient(rgba(16,185,129,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.8)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
             </div>
-            <DialogTitle className="text-xl font-bold text-center text-slate-900 dark:text-white">
-              আমাদের সাথে যোগাযোগ করুন
-            </DialogTitle>
-            <DialogDescription className="text-center text-sm text-slate-600 dark:text-slate-400">
-              আপনার প্রজেক্ট সম্পর্কে আলোচনা করতে নিচের কন্টাক্ট বার ব্যবহার করুন
-            </DialogDescription>
-          </DialogHeader>
+          </div>
 
-          <div className="flex justify-center pt-2 pb-4">
-            <div className="animate-bounce bg-emerald-100 dark:bg-emerald-900/30 p-1 rounded-full">
-              <svg
-                className="h-5 w-5 text-emerald-500"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
+          {/* Content with higher z-index */}
+          <div className="relative z-10">
+            <DialogHeader className="space-y-2">
+              <div className="mx-auto bg-gradient-to-r from-emerald-500 to-teal-500 w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
+                <MessageCircle className="h-5 w-5 text-white" />
+              </div>
+              <DialogTitle className="text-xl font-bold text-center text-slate-900 dark:text-white">
+                আমাদের সাথে যোগাযোগ করুন
+              </DialogTitle>
+              <DialogDescription className="text-center text-sm text-slate-600 dark:text-slate-400">
+                আপনার প্রজেক্ট সম্পর্কে আলোচনা করতে নিচের কন্টাক্ট বার ব্যবহার করুন
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="flex justify-center pt-2 pb-4">
+              <div className="animate-bounce bg-emerald-100 dark:bg-emerald-900/50 p-1 rounded-full shadow-md">
+                <svg
+                  className="h-5 w-5 text-emerald-500"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+              </div>
             </div>
           </div>
         </DialogContent>
