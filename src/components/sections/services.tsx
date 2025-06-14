@@ -9,7 +9,7 @@ const services = [
   {
     icon: Zap,
     title: "হাই-কনভার্টিং ডিজাইন",
-    description: "কাস্টম-ডিজাইন করা ল্যান্ডিং পেজগুলি সর্বাধিক রূপান্তর এবং ব্যবহারকারীর ব্যস্ততার জন্য অপ্টিমাইজ করা হয়েছে।",
+    description: "আমাদের কাস্টম-ডিজাইন ল্যান্ডিং পেজগুলো তৈরি করা হয় সর্বোচ্চ কনভার্শন ও ইউজার এনগেজমেন্ট নিশ্চিত করার জন্য।",
     gradient: "from-emerald-500 to-teal-500",
     bgGradient: "from-emerald-50 to-teal-50",
     darkBgGradient: "from-emerald-900/20 to-teal-900/20",
@@ -17,7 +17,7 @@ const services = [
   {
     icon: Smartphone,
     title: "মোবাইল-ফার্স্ট অ্যাপ্রোচ",
-    description: "সম্পূর্ণ প্রতিক্রিয়াশীল ডিজাইন যা সমস্ত ডিভাইস এবং স্ক্রিন আকারে নিখুঁত দেখায়।",
+    description: "মোবাইলকে অগ্রাধিকার দিয়ে তৈরি প্রতিটি পেজ, যেটা সব স্ক্রিনে নিখুঁতভাবে কাজ করে।",
     gradient: "from-teal-500 to-cyan-500",
     bgGradient: "from-teal-50 to-cyan-50",
     darkBgGradient: "from-teal-900/20 to-cyan-900/20",
@@ -25,7 +25,7 @@ const services = [
   {
     icon: Search,
     title: "এসইও অপটিমাইজড",
-    description: "আপনার ব্যবসাকে অনুসন্ধানের ফলাফলে আরও উপরে স্থান পেতে সহায়তা করার জন্য এসইও সেরা অনুশীলনগুলির সাথে নির্মিত।",
+    description: "আপনার পেজ যেন গুগলে সহজেই খুঁজে পাওয়া যায় — সেই লক্ষ্যেই আমরা ব্যবহার করি সর্বোচ্চ মানের এসইও কৌশল।",
     gradient: "from-cyan-500 to-blue-500",
     bgGradient: "from-cyan-50 to-blue-50",
     darkBgGradient: "from-cyan-900/20 to-blue-900/20",
@@ -33,7 +33,7 @@ const services = [
   {
     icon: Clock,
     title: "বিদ্যুৎগতি সম্পন্ন",
-    description: "দর্শকদের আকৃষ্ট রাখতে 90+ PageSpeed স্কোর সহ গতির জন্য অপ্টিমাইজ করা হয়েছে।",
+    description: "অত্যন্ত দ্রুতগতির লোডিং — ৯০-এর উপরে PageSpeed স্কোর, যাতে দর্শক কখনও অপেক্ষা না করে।",
     gradient: "from-blue-500 to-indigo-500",
     bgGradient: "from-blue-50 to-indigo-50",
     darkBgGradient: "from-blue-900/20 to-indigo-900/20",
@@ -41,7 +41,7 @@ const services = [
   {
     icon: TrendingUp,
     title: "অ্যানালিটিক্স ইন্টিগ্রেশন",
-    description: "ইন্টিগ্রেটেড অ্যানালিটিক্স এবং রূপান্তর ট্র্যাকিংয়ের সাথে কর্মক্ষামতা ট্র্যাক করুন।",
+    description: "অ্যানালিটিক্স ইন্টিগ্রেশন — ভিজিটরদের আচরণ সহজেই ট্র্যাক করুন বিল্ট-ইন ট্র্যাকিং টুলস দিয়ে।",
     gradient: "from-indigo-500 to-purple-500",
     bgGradient: "from-indigo-50 to-purple-50",
     darkBgGradient: "from-indigo-900/20 to-purple-900/20",
@@ -49,7 +49,7 @@ const services = [
   {
     icon: Users,
     title: "চলমান সহায়তা",
-    description: "প্রকল্প বিতরণের পরে 30 দিনের বিনামূল্যে সহায়তা এবং রক্ষণাবেক্ষণ।",
+    description: "ডেলিভারির পরও আমরা পাশে আছি — ৩০ দিনের ফ্রি সাপোর্ট ও মেইনটেন্যান্স প্রদান করা হয়।",
     gradient: "from-purple-500 to-pink-500",
     bgGradient: "from-purple-50 to-pink-50",
     darkBgGradient: "from-purple-900/20 to-pink-900/20",
@@ -92,7 +92,7 @@ export function ServicesSection() {
               </span>
             </h2>
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-              ডিজাইন থেকে শুরু করে স্থাপন পর্যন্ত, আমরা সবকিছু সামলাই যাতে আপনি আপনার ব্যবসা বাড়ানোর দিকে মনোযোগ দিতে পারেন।
+            ডিজাইন থেকে শুরু করে চালু করা পর্যন্ত, আমরা আছি পুরো পথেই — আপনার ফোকাস থাকুক ব্যবসায়।
             </p>
           </motion.div>
         </div>

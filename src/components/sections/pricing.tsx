@@ -226,8 +226,8 @@ export function PricingSection() {
             <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl p-6 border border-emerald-200 dark:border-emerald-700">
               <h4 className="font-bold text-emerald-800 dark:text-emerald-300 mb-3">দ্রুত যোগাযোগ</h4>
               <div className="space-y-2">
-                <p className="text-sm text-emerald-700 dark:text-emerald-400">📱 হোয়াটসঅ্যাপ: +৮৮০১</p>
-                <p className="text-sm text-emerald-700 dark:text-emerald-400">📧 ইমেইল: landingpro@gmail.com</p>
+                <p className="text-sm text-emerald-700 dark:text-emerald-400">📱 হোয়াটসঅ্যাপ: +8801613-980323</p>
+                <p className="text-sm text-emerald-700 dark:text-emerald-400">📧 ইমেইল: ekpata@gmail.com</p>
                 <p className="text-sm text-emerald-700 dark:text-emerald-400">⏰ সাপোর্ট: ২৪/৭</p>
               </div>
             </div>

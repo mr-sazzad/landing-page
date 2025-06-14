@@ -40,7 +40,7 @@
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px)
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 :root {
@@ -76,6 +76,12 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
+
+  /* Contact bar animation colors */
+  --contact-glow-1: oklch(0.646 0.222 41.116);
+  --contact-glow-2: oklch(0.488 0.243 264.376);
+  --contact-glow-3: oklch(0.769 0.188 70.08);
+  --contact-glow-4: oklch(0.6 0.118 184.704);
 }
 
 .dark {
@@ -110,6 +116,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
+
+  /* Contact bar animation colors for dark mode */
+  --contact-glow-1: oklch(0.488 0.243 264.376);
+  --contact-glow-2: oklch(0.696 0.17 162.48);
+  --contact-glow-3: oklch(0.769 0.188 70.08);
+  --contact-glow-4: oklch(0.627 0.265 303.9);
 }
 
 @layer base {
@@ -118,5 +130,84 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations for the floating contact bar */
+@keyframes border-rainbow {
+  0% {
+    box-shadow: 0 0 5px 2px oklch(from var(--contact-glow-1) l c h / 50%);
+    border-color: oklch(from var(--contact-glow-1) l c h / 70%);
+  }
+  25% {
+    box-shadow: 0 0 10px 3px oklch(from var(--contact-glow-2) l c h / 60%);
+    border-color: oklch(from var(--contact-glow-2) l c h / 80%);
+  }
+  50% {
+    box-shadow: 0 0 15px 4px oklch(from var(--contact-glow-3) l c h / 70%);
+    border-color: oklch(from var(--contact-glow-3) l c h / 90%);
+  }
+  75% {
+    box-shadow: 0 0 10px 3px oklch(from var(--contact-glow-4) l c h / 60%);
+    border-color: oklch(from var(--contact-glow-4) l c h / 80%);
+  }
+  100% {
+    box-shadow: 0 0 5px 2px oklch(from var(--contact-glow-1) l c h / 50%);
+    border-color: oklch(from var(--contact-glow-1) l c h / 70%);
+  }
+}
+
+@keyframes float {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes attention {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  10%,
+  30%,
+  50% {
+    transform: scale(1.05);
+  }
+  20%,
+  40% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@layer utilities {
+  .animate-border-rainbow {
+    animation: border-rainbow 6s infinite linear;
+  }
+
+  .animate-float {
+    animation: float 0.5s ease-out forwards;
+  }
+
+  .animate-attention {
+    animation: attention 1s ease-in-out;
+  }
+
+  .animate-icon-bounce {
+    animation: icon-bounce 0.6s ease-in-out;
   }
 }

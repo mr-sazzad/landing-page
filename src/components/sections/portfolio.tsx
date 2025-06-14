@@ -3,22 +3,24 @@ import { Shield, ShoppingBag, TrendingUp } from "lucide-react"
 
 const portfolioItems = [
   {
-    title: "পাঞ্জাবি ফ্যাশন স্টোর",
+    title: "আলওয়ান ফ্যাশন স্টোর",
     result: "অনলাইন পাঞ্জাবি বিক্রয় ৩২০% বৃদ্ধি পেয়েছে",
     category: "ফ্যাশন ও পোশাক",
-    percentage: "320%",
+    percentage: "180%",
     icon: ShoppingBag,
     gradient: "from-emerald-500 to-teal-500",
     description: "ঐতিহ্যবাহী পাঞ্জাবি এবং কুর্তার অনলাইন বিক্রয়",
+    link: "https://www.alwan-bd.com",
   },
   {
-    title: "আলওয়ান ও ফ্রেশি ড্রিংকস",
+    title: "ফ্রেশি ড্রিংকস",
     result: "পানীয় অর্ডার ২৮০% বৃদ্ধি পেয়েছে",
     category: "খাদ্য ও পানীয়",
     percentage: "280%",
     icon: TrendingUp,
     gradient: "from-teal-500 to-cyan-500",
     description: "প্রিমিয়াম পানীয় ব্র্যান্ডের অনলাইন বিক্রয়",
+    link: "https://www.freshybd.com",
   },
 ]
 
@@ -38,7 +40,7 @@ export function PortfolioSection() {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            উচ্চ-রূপান্তরকারী ল্যান্ডিং পৃষ্ঠাগুলির মাধ্যমে আমরা কীভাবে ছোট ব্যবসাগুলিকে বাড়াতে সহায়তা করেছি তা দেখুন।
+          কীভাবে আমাদের ডিজাইন করা ল্যান্ডিং পেজগুলো ছোট ব্যবসার রূপান্তর ও বিক্রি বাড়াতে সহায়তা করেছে — দেখে নিন।
           </p>
         </div>
 
@@ -84,7 +86,14 @@ export function PortfolioSection() {
 
                   {/* View Details Arrow */}
                   <div className="flex items-center text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-sm font-medium mr-2">বিস্তারিত</span>
+
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center px-4 py-2 text-gradient-to-r ${item.gradient} transition-all duration-300 text-sm font-medium`}
+                  >
+                    <span>বিস্তারিত</span>
                     <svg
                       className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300"
                       fill="none"
@@ -93,6 +102,7 @@ export function PortfolioSection() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
+                  </a>
                   </div>
                 </div>
 

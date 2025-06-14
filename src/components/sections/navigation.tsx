@@ -10,7 +10,6 @@ const navLinks = [
   { name: "সেবাসমূহ", href: "#services" },
   { name: "পোর্টফোলিও", href: "#portfolio" },
   { name: "মূল্য", href: "#pricing" },
-  { name: "যোগাযোগ", href: "#contact" },
 ]
 
 export function Navigation() {
@@ -65,7 +64,7 @@ export function Navigation() {
             isMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="flex flex-col space-y-2 py-2 px-2 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
+          <div className="flex flex-col space-y-2 py-2 px-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

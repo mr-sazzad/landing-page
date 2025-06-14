@@ -7,29 +7,24 @@ import { useState } from "react"
 const faqs = [
   {
     question: "একটি ল্যান্ডিং পেজ তৈরি করতে কতক্ষণ লাগে?",
-    answer: "বেশিরভাগ প্রকল্প 24-48 ঘন্টার মধ্যে সম্পন্ন হয়। জটিল প্রকল্পগুলিতে 5 কার্যদিবস পর্যন্ত সময় লাগতে পারে।",
+    answer: "বেশিরভাগ প্রকল্প 24-48 ঘন্টার মধ্যে সম্পন্ন হয়। জটিল গুলিতে 5 কার্যদিবস পর্যন্ত সময় লাগতে পারে।",
   },
   {
     question: "আপনারা কি হোস্টিং প্রদান করেন?",
     answer:
-      "আমরা আপনাকে হোস্টিং সেট আপ করতে বা আপনার বিদ্যমান হোস্টিং প্রদানকারীর কাছে স্থাপন করতে সহায়তা করতে পারি। হোস্টিং খরচ আমাদের ডিজাইন ফি থেকে আলাদা।",
+      "আমরা আপনার জন্য হোস্টিং সেটআপ করতে বা আপনার বিদ্যমান হোস্টিং সার্ভিসে ল্যান্ডিং পেজ হোস্ট করতে সাহায্য করি। হোস্টিং খরচ আমাদের ডিজাইন ফি থেকে আলাদা।",
   },
   {
-    question: "পেজ ডেলিভারি হওয়ার পরে আমি কি পরিবর্তন অনুরোধ করতে পারি?",
-    answer: "হ্যাঁ! সমস্ত প্যাকেজে রিভিশন রাউন্ড অন্তর্ভুক্ত রয়েছে এবং প্রয়োজনীয় কোনও অতিরিক্ত পরিবর্তনের জন্য আমরা চলমান সহায়তা প্রদান করি।",
+    question: "পেজ ডেলিভারি হওয়ার পরে আমি কি পরিবর্তন করতে পারি?",
+    answer: "হ্যাঁ! সমস্ত প্যাকেজে রিভিশন রাউন্ড অন্তর্ভুক্ত রয়েছে এবং প্রয়োজনীয় কোনও অতিরিক্ত পরিবর্তনের জন্য আমরা সহায়তা প্রদান করি।",
   },
   {
     question: "আমার ল্যান্ডিং পেজটি কি মোবাইল ডিভাইসে কাজ করবে?",
-    answer: "আমাদের সমস্ত ল্যান্ডিং পেজ সম্পূর্ণরূপে প্রতিক্রিয়াশীল এবং মোবাইল, ট্যাবলেট এবং ডেস্কটপ ডিভাইসের জন্য অপ্টিমাইজ করা হয়েছে।",
-  },
-  {
-    question: "আপনারা কি কন্টেন্ট তৈরিতে সহায়তা করেন?",
-    answer:
-      "আমরা কন্টেন্ট কাঠামো এবং কপিরাইটিং সেরা অনুশীলন সম্পর্কে নির্দেশনা দিতে পারি। পেশাদার কপিরাইটিং একটি অ্যাড-অন পরিষেবা হিসাবে উপলব্ধ।",
+    answer: "আমাদের সমস্ত ল্যান্ডিং পেজ সম্পূর্ণরূপে রেসপন্সিভ এবং মোবাইল, ট্যাবলেট ও ডেস্কটপ ডিভাইসের জন্য অপ্টিমাইজ করা।",
   },
   {
     question: "পেমেন্ট কিভাবে করতে হবে?",
-    answer: "আমরা bKash, Nagad, এবং ব্যাংক ট্রান্সফার গ্রহণ করি। প্রকল্প শুরুর আগে 50% এবং সম্পূর্ণ হওয়ার পর বাকি 50% পেমেন্ট করতে হবে।",
+    answer: "আমরা bKash, Nagad, এবং ব্যাংক ট্রান্সফার গ্রহণ করি। কাজ শুরুর আগে 50% এবং সম্পূর্ণ হওয়ার পর বাকি 50% পেমেন্ট করতে হবে।",
   },
 ]
 
@@ -119,26 +114,6 @@ export function FAQSection() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-12 sm:mt-16 lg:mt-20 text-center">
-          <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 dark:from-emerald-500/5 dark:via-teal-500/5 dark:to-cyan-500/5 rounded-2xl p-6 sm:p-8 lg:p-12 border border-emerald-200/50 dark:border-emerald-700/50 max-w-2xl mx-auto">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">
-              আরও প্রশ্ন আছে?
-            </h3>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4 sm:mb-6">
-              আমাদের সাথে সরাসরি যোগাযোগ করুন। আমরা আপনার সব প্রশ্নের উত্তর দিতে প্রস্তুত।
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                WhatsApp এ যোগাযোগ করুন
-              </button>
-              <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 font-semibold rounded-xl transition-all duration-300">
-                ইমেইল করুন
-              </button>
-            </div>
           </div>
         </div>
       </div>
