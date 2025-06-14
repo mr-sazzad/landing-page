@@ -129,7 +129,7 @@ export function BenefitsSection() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
-                    className="px-8 py-6 bg-white text-emerald-600 font-semibold rounded-md shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-slate-50"
+                    className="px-8 py-6 bg-white text-emerald-600 font-semibold rounded-md shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-slate-50 cursor-pointer"
                     onClick={() => setShowConsultationDialog(true)}
                   >
                     ফ্রি কনসালটেশন বুক করুন
