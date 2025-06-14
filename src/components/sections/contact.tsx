@@ -96,7 +96,6 @@ export const FloatingContactBar = () => {
                   ${method.color} text-white p-2.5 rounded-full 
                   flex items-center justify-center transition-all duration-300 
                   hover:scale-110 active:scale-95 shadow-lg hover:shadow-xl
-                  ${method.priority === "high" ? "ring-2 ring-white/50 ring-offset-1" : ""}
                   relative overflow-hidden group/button
                 `}
                       >
@@ -104,13 +103,8 @@ export const FloatingContactBar = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/button:translate-x-full transition-transform duration-700"></div>
 
                         <method.icon
-                          className={`h-4 w-4 relative z-10 ${method.priority === "high" ? "animate-pulse" : ""}`}
+                          className={`h-4 w-4 relative z-10 z`}
                         />
-
-                        {/* Priority Badge */}
-                        {method.priority === "high" && (
-                          <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
-                        )}
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top" className="bg-slate-900 text-white border-slate-700">
