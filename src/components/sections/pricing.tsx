@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle, Clock, Shield, Zap } from "lucide-react"
+import { CheckCircle, Clock, Shield, Zap } from "lucide-react"
 
 const features = [
   {
@@ -153,9 +153,8 @@ export function PricingSection() {
               </div>
 
               {/* CTA Button */}
-              <Button className="w-full text-lg py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-xl">
-                অর্ডার করুন
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button className="w-full text-lg py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white border-0 shadow-lg rounded-md">
+              অর্ডার দিতে আমাদের মেসেজ করুন
               </Button>
 
               {/* Bottom Line Indicator */}
@@ -165,28 +164,6 @@ export function PricingSection() {
 
           {/* Right Column - Payment & Process */}
           <div className="lg:col-span-1 space-y-6">
-            {/* Payment Methods */}
-            {/* <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">পেমেন্ট মেথড</h3>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white dark:bg-slate-700 rounded-lg p-3 border border-slate-200 dark:border-slate-600 text-center">
-                  <div className="text-lg font-bold text-pink-600">bKash</div>
-                  <div className="text-xs text-slate-500">মোবাইল ব্যাংকিং</div>
-                </div>
-                <div className="bg-white dark:bg-slate-700 rounded-lg p-3 border border-slate-200 dark:border-slate-600 text-center">
-                  <div className="text-lg font-bold text-orange-600">Nagad</div>
-                  <div className="text-xs text-slate-500">মোবাইল ব্যাংকিং</div>
-                </div>
-                <div className="bg-white dark:bg-slate-700 rounded-lg p-3 border border-slate-200 dark:border-slate-600 text-center">
-                  <div className="text-lg font-bold text-blue-600">Rocket</div>
-                  <div className="text-xs text-slate-500">মোবাইল ব্যাংকিং</div>
-                </div>
-                <div className="bg-white dark:bg-slate-700 rounded-lg p-3 border border-slate-200 dark:border-slate-600 text-center">
-                  <div className="text-lg font-bold text-green-600">Bank</div>
-                  <div className="text-xs text-slate-500">ব্যাংক ট্রান্সফার</div>
-                </div>
-              </div>
-            </div> */}
 
             {/* Process Steps */}
             <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700">
